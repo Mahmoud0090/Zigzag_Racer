@@ -7,18 +7,18 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
-
     public GameObject platformSpawner;
-
     public bool gameStarted;
 
     public float scoreUpdatingTime = 0.5f;
+    public GameObject UIScoreGameObject;
+    public GameObject UIMenuGameObject;
 
-    public GameObject UIGameObject;
-
+    public TMP_Text highScoreText;
     public TMP_Text scoreText;
 
     int score = 0;
+    int highScore;
     private void Awake()
     {
         if(instance == null)
@@ -29,7 +29,9 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        
+        highScore = PlayerPrefs.GetInt("HighScore");
+
+        highScoreText.text = "Highest Score : " + highScore;
     }
 
     // Update is called once per frame
@@ -48,8 +50,18 @@ public class GameManager : MonoBehaviour
     {
         gameStarted = true;
         platformSpawner.SetActive(true);
-        UIGameObject.SetActive(true);
-        StartCoroutine(UpdateScore());
+        UIScoreGameObject.SetActive(true);
+        UIMenuGameObject.SetActive(false);
+        StartCoroutine("UpdateScore");
+    }
+
+
+    public void GameOver()
+    {
+        platformSpawner.SetActive(false);
+        StopCoroutine("UpdateScore");
+        SaveHighScore();
+        Invoke("ReloadLevel", 1f);
     }
 
     IEnumerator UpdateScore()
@@ -62,11 +74,24 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void GameOver()
+
+    void SaveHighScore()
     {
-        platformSpawner.SetActive(false);
-        Invoke("ReloadLevel", 1f);
+        //already have a highscore
+        if (PlayerPrefs.HasKey("HighScore"))
+        {
+            if(score > PlayerPrefs.GetInt("HighScore"))
+            {
+                PlayerPrefs.SetInt("HighScore", score);
+            }
+        }
+        //playing for the first time
+        else
+        {
+            PlayerPrefs.SetInt("HighScore", score);
+        }
     }
+
 
     void ReloadLevel()
     {
