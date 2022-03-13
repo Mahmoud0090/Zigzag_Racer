@@ -359,6 +359,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 619392b0d633e6a4ebfb3be357406750, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  platformSpawner: {fileID: 2040179426}
   gameStarted: 0
 --- !u!4 &735593345
 Transform:
@@ -588,7 +589,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &2040179427
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -634,7 +635,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf497da60e8d07848867c62474da7263, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 4
+  moveSpeed: 6
 --- !u!4 &919132148232907231 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 778094016875063681, guid: 5feb42fb0ee62eb48aaa926dae068511, type: 3}
@@ -650,6 +651,10 @@ PrefabInstance:
     - target: {fileID: 110207135832453947, guid: 5feb42fb0ee62eb48aaa926dae068511, type: 3}
       propertyPath: m_Name
       value: car
+      objectReference: {fileID: 0}
+    - target: {fileID: 110207135832453947, guid: 5feb42fb0ee62eb48aaa926dae068511, type: 3}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 778094016875063681, guid: 5feb42fb0ee62eb48aaa926dae068511, type: 3}
       propertyPath: m_RootOrder
@@ -697,7 +702,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 956699497542470128, guid: 5feb42fb0ee62eb48aaa926dae068511, type: 3}
       propertyPath: m_IsKinematic
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5feb42fb0ee62eb48aaa926dae068511, type: 3}
