@@ -8,6 +8,8 @@ public class Car : MonoBehaviour
 
     private bool movingLeft = true;
 
+    private bool firstInput = true;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -17,8 +19,11 @@ public class Car : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Move();
-        CheckInput();
+        if (GameManager.instance.gameStarted)
+        {
+            Move();
+            CheckInput();
+        }
     }
 
     private void Move()
@@ -28,6 +33,13 @@ public class Car : MonoBehaviour
 
     private void CheckInput()
     {
+        if (firstInput)
+        {
+            firstInput = false;
+            return;
+        }
+
+
         if (Input.GetMouseButtonDown(0))
         {
             ChangeDirection();
