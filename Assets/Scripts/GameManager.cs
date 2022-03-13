@@ -19,6 +19,10 @@ public class GameManager : MonoBehaviour
 
     int score = 0;
     int highScore;
+
+    AudioSource audioSource;
+
+    public AudioClip gameStartClip;
     private void Awake()
     {
         if(instance == null)
@@ -29,6 +33,8 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
+
         highScore = PlayerPrefs.GetInt("HighScore");
 
         highScoreText.text = "Highest Score : " + highScore;
@@ -49,9 +55,14 @@ public class GameManager : MonoBehaviour
     public void GameStart()
     {
         gameStarted = true;
+
+        audioSource.clip = gameStartClip;
+        audioSource.Play();
+
         platformSpawner.SetActive(true);
         UIScoreGameObject.SetActive(true);
         UIMenuGameObject.SetActive(false);
+
         StartCoroutine("UpdateScore");
     }
 
