@@ -403,6 +403,7 @@ MonoBehaviour:
   UIMenuGameObject: {fileID: 1529740931}
   highScoreText: {fileID: 1849057570}
   scoreText: {fileID: 1088358116}
+  starScore: 5
   gameStartClip: {fileID: 8300000, guid: 07f391589664f4e85904fa28802b4aa8, type: 3}
 --- !u!4 &735593345
 Transform:
@@ -760,6 +761,7 @@ GameObject:
   - component: {fileID: 963194227}
   - component: {fileID: 963194226}
   - component: {fileID: 963194229}
+  - component: {fileID: 963194230}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -846,6 +848,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 919132148232907231}
   smoothValue: 5
+--- !u!114 &963194230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963194225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9146b20b56c38647ad488002411f782, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  backgroundChangeTime: 2
+  colors:
+  - {r: 0.7830189, g: 0.30582055, b: 0.30582055, a: 0}
+  - {r: 0.6981132, g: 0.43072265, b: 0.6878289, a: 0}
+  - {r: 0.54672855, g: 0.7735849, b: 0.44809538, a: 0}
+  - {r: 0.8490566, g: 0.722409, b: 0.17942323, a: 0}
+  - {r: 0.16582409, g: 0.6415094, b: 0.46374506, a: 0}
+  - {r: 0.13264506, g: 0.764151, b: 0.72630763, a: 0}
+  - {r: 0.14951184, g: 0.41509432, b: 0.028978268, a: 0}
 --- !u!1 &1088358114
 GameObject:
   m_ObjectHideFlags: 0
@@ -880,7 +903,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 910}
+  m_AnchoredPosition: {x: 0, y: 862}
   m_SizeDelta: {x: 980, y: 400}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1088358116

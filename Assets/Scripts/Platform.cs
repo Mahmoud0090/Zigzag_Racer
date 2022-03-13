@@ -19,7 +19,8 @@ public class Platform : MonoBehaviour
 
         if(randDiamond < 1)
         {
-            Instantiate(star, starPos, star.transform.rotation);
+           GameObject starInstance = Instantiate(star, starPos, star.transform.rotation);
+           starInstance.transform.SetParent(gameObject.transform);
         }
 
     }

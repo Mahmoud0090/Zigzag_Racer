@@ -17,8 +17,11 @@ public class GameManager : MonoBehaviour
     public TMP_Text highScoreText;
     public TMP_Text scoreText;
 
+
+    public int starScore = 5;
     int score = 0;
     int highScore;
+
 
     AudioSource audioSource;
 
@@ -83,6 +86,12 @@ public class GameManager : MonoBehaviour
             score++;
             scoreText.text = score.ToString();
         }
+    }
+
+    public void IncrementScoreWhenTakingStar()
+    {
+        score += starScore;
+        scoreText.text = score.ToString();
     }
 
 

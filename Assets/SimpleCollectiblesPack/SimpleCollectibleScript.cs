@@ -33,7 +33,9 @@ public class SimpleCollectibleScript : MonoBehaviour {
 	void OnTriggerEnter(Collider other)
 	{
 		if (other.tag == "Player") {
-			Collect ();
+
+			GameManager.instance.IncrementScoreWhenTakingStar();
+			Collect();
 		}
 	}
 
@@ -49,8 +51,6 @@ public class SimpleCollectibleScript : MonoBehaviour {
 		if (CollectibleType == CollectibleTypes.NoType) {
 
 			//Add in code here;
-
-			Debug.Log ("Do NoType Command");
 		}
 		if (CollectibleType == CollectibleTypes.Type1) {
 
