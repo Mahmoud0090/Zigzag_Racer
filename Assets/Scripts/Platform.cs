@@ -6,10 +6,22 @@ public class Platform : MonoBehaviour
 {
     public float destroyPlatformTime = 1f;
 
+    public GameObject star;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        Vector3 starPos = transform.position;
+
+        starPos.y += 1f;
+
+        int randDiamond = Random.Range(0, 5);
+
+        if(randDiamond < 1)
+        {
+            Instantiate(star, starPos, star.transform.rotation);
+        }
+
     }
 
     // Update is called once per frame
